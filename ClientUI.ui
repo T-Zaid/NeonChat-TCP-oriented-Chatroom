@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTextEdit" name="textEdit_2">
+   <widget class="QTextEdit" name="sendbox">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -24,7 +24,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="IPbox">
     <property name="geometry">
      <rect>
       <x>290</x>
@@ -34,7 +34,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="connectbutton">
     <property name="geometry">
      <rect>
       <x>490</x>
@@ -47,7 +47,7 @@
      <string>Connect</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit">
+   <widget class="QTextEdit" name="recvbox">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -60,7 +60,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="sendbutton">
     <property name="geometry">
      <rect>
       <x>550</x>
@@ -73,7 +73,7 @@
      <string>Send Message</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="nicklabel">
     <property name="geometry">
      <rect>
       <x>40</x>
@@ -86,7 +86,7 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Please Input Nickname: &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
+   <widget class="QLineEdit" name="nickbox">
     <property name="geometry">
      <rect>
       <x>290</x>
@@ -96,7 +96,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="QLabel" name="heading">
     <property name="geometry">
      <rect>
       <x>130</x>
@@ -109,7 +109,7 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt; font-weight:600; text-decoration: underline;&quot;&gt;Neon Chat&lt;/span&gt;&lt;span style=&quot; font-size:22pt; vertical-align:sub;&quot;&gt;CLIENT&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="IPlabel">
     <property name="geometry">
      <rect>
       <x>100</x>
