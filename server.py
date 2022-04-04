@@ -7,6 +7,7 @@ clients = []    #client IP address
 usernames = []  #client username
 
 def broadcast(message):     #Utility to broadcast message to all clients
+    print(message.decode('ascii'))
     for client in clients:
         client.send(message)
 
