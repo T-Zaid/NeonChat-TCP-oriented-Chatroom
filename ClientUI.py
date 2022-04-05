@@ -11,7 +11,9 @@
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
-
+import client_backend
+import socket
+import threading
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -74,6 +76,23 @@ class Ui_MainWindow(object):
         self.IPbox.setValidator(input_validator)
     # retranslateUi
 
+    def connect_server(self):
+        hostIP = self.IPbox.text()
+        u_name = self.nickbox.text()
+
+        if hostIP != "" and u_name != "":
+            global client
+            client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            client.connect((hostIP, 55555))    #connect to the server via it's IP address and port
+            reciever = threading.Thread(target=client_backend.receive, args=(client, u_name, self.recvbox,))
+            reciever.start()
+
+    def send_message(self):
+        text = self.sendbox.toPlainText()
+        if text != "":
+            client_backend.write(text, client, self.nickbox.text())
+            self.sendbox.setPlainText("")
+
 if __name__ == "__main__":
     import sys
     app = QApplication(sys.argv)
@@ -81,4 +100,8 @@ if __name__ == "__main__":
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
+
+    ui.connectbutton.clicked.connect(ui.connect_server)
+    ui.sendbutton.clicked.connect(ui.send_message)
+
     sys.exit(app.exec_())
