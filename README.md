@@ -3,6 +3,14 @@ A TCP oriented chatroom that utilizes the libraries of socket and threading.
 
 A user-friendly GUI has been implemented for smoother and seamless experience of users.
 
+## Required Libraries
+1) Socket -> for connection between server and client.
+2) Threading -> for managing multiple process simulataneously.
+3) PySide2 -> for GUI purpose.
+
+NOTE : The first and second library are mostly installed by default.
+TIP : To install PySide : Run this in terminal -> `py -m pip install PySide2`
+
 ## How to Run:
 1) Run serverUI by typing "py serverUI.py" in cmd.
 2) Enter IP and port and click on start listening
