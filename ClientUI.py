@@ -71,19 +71,20 @@ class Ui_MainWindow(object):
         self.nicklabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:16pt;\">Please Input Nickname: </span></p></body></html>", None))
         self.heading.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:36pt; font-weight:600; text-decoration: underline;\">Neon Chat</span><span style=\" font-size:22pt; vertical-align:sub;\">CLIENT</span></p></body></html>", None))
         self.IPlabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:16pt;\">Please Input IP: </span></p></body></html>", None))
-        reg_ex = QRegExp("\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}")
-        input_validator = QRegExpValidator(reg_ex, self.IPbox)
-        self.IPbox.setValidator(input_validator)
+        # reg_ex = QRegExp("\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}")
+        # input_validator = QRegExpValidator(reg_ex, self.IPbox)
+        # self.IPbox.setValidator(input_validator)
     # retranslateUi
 
     def connect_server(self):
         hostIP = self.IPbox.text()
+        hostIP = hostIP.split(":")
         u_name = self.nickbox.text()
 
         if hostIP != "" and u_name != "":
             global client
             client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            client.connect((hostIP, 55555))    #connect to the server via it's IP address and port
+            client.connect((hostIP[0], int(hostIP[1])))    #connect to the server via it's IP address and port
             reciever = threading.Thread(target=client_backend.receive, args=(client, u_name, self.recvbox,))
             reciever.start()
 
